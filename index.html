@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard OSIPTEL - Fiscalización CVM (4K)</title>
+    <title>Dashboard OSIPTEL - Fiscalización CVM (Final GitHub)</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js y Plugins -->
@@ -29,53 +29,52 @@
         .glass-card {
             background: rgba(10, 22, 40, 0.95);
             border: 1px solid rgba(0, 174, 239, 0.2);
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         }
         .chart-container {
             background: rgba(4, 11, 20, 0.5);
-            border-radius: 12px;
+            border-radius: 8px;
             border: 1px solid rgba(255,255,255,0.05);
         }
         .info-box {
             background: rgba(0, 174, 239, 0.1);
-            border-left: 6px solid #00AEEF;
-            padding: 16px 24px;
-            border-radius: 8px;
-            font-size: 18px; /* 4K Scale */
+            border-left: 3px solid #00AEEF;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 11px;
             color: #8A9BB0;
-            margin-bottom: 24px;
-            line-height: 1.6;
+            margin-bottom: 16px;
+            line-height: 1.4;
         }
         .custom-select {
             background-color: #002D72;
-            color: white; border: 2px solid #00AEEF;
-            padding: 1rem 1.5rem; border-radius: 12px; outline: none; width: 100%;
-            appearance: none; font-weight: bold; font-size: 1.25rem;
+            color: white; border: 1px solid #00AEEF;
+            padding: 0.6rem 0.8rem; border-radius: 8px; outline: none; width: 100%;
+            appearance: none; font-weight: bold;
             background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-            background-repeat: no-repeat, repeat; background-position: right 1.5rem top 50%, 0 0; background-size: 1rem auto, 100%;
+            background-repeat: no-repeat, repeat; background-position: right .7em top 50%, 0 0; background-size: .65em auto, 100%;
         }
-        ::-webkit-scrollbar { width: 12px; height: 12px; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #040b14; }
         ::-webkit-scrollbar-thumb { background: #0057B8; border-radius: 10px; }
     </style>
 </head>
 <body class="h-screen flex overflow-hidden font-sans">
 
-    <!-- SIDEBAR 4K (Width increased) -->
-    <aside class="w-[500px] bg-osiptel-navy flex-shrink-0 border-r border-osiptel-cyan/40 flex flex-col z-20">
-        <div class="p-10 h-full flex flex-col">
-            <div class="bg-white rounded-xl p-6 mb-10 shadow-2xl text-center">
-                <!-- LOGO EMBEBIDO BASE 64 -->
-                <img src="data:image/png;base64,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" alt="OSIPTEL Logo" class="mx-auto h-28 object-contain">
+    <!-- SIDEBAR -->
+    <aside class="w-72 bg-osiptel-navy flex-shrink-0 border-r border-osiptel-cyan/40 flex flex-col z-20">
+        <div class="p-6 h-full flex flex-col">
+            <div class="bg-white rounded-lg p-3 mb-6 shadow-lg text-center">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtQAAADmCAYAAAD1ABJ/AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAL5RJREFUeNrsnW1sJMeZ34tv+6KVvKPIsiVHZ80eLkIMI6dhggA5wzKHMeQv92GHMuAEWCM7I1uWZQNZMoC+JSD52R/IPeDgyHDCWdwx+ZKIs5czDMjnYy+cIAESY0eXIEaUnDk6405aS+udXe0bl2/p6qoWh9zhvFZ1V3f/fkBzuMuZnu7qqqf+9dRTTwkBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO4yQhEAAEBXVusF/2fOP5riXKFOgQCkro3L9l0wcKZM2ohxapC73PzhufxdbzU/lnuquNN8X/ivU/I1GAk9+nhx7/aNoz88GgyX6mLHr9hj8vcRWblvjoyN10dP5Zqf+oMPPEoYALp0sEX/5wX/KB36f/mz5h8X/Y4TW5K857ru/ywaONM0zz9VSDG9buA8XlA3ENQQBx/+q0J+58NfFfYe3J4SuzsFMXa86Ivp4G+hiA5fJR3FtGT348bhfzD4RGA897a3xM7mB+K9r/v/GPMFtxTdI6Nvjxw/6T31r+/gdQKA0FO11kV0lYJjtS6FdcUXVk0KDgCyCoI6Rq699kRp96PrU2JitLS1Uc8f+OPWtv0L2AkEd0Gq772tO+K9fyaavsD2/P+/PPa3nvQ+9QcfNHhKAJkU0+ui96lfKazz/uemEdUAgKCGSHj/5fHy3oPtKdkJ+WI6p8TzrhsXtxvERwZep53fBF5s6bG+5B+1p/9YIK4BssGa6D+OsqA/N03xAUAWGaUIIhDRrxwr+uJ0xT9u+GJ6xf+vslCLe1xHdpJL/rHxfmV83b/+8s0fnsvxRAFSympd2qbigJ8u6s8DACCowQwfLnwu915ldPa982Jj796D9QSJ6LbsbW3LTnblrre6ce21J1ZkzDdPGSB1zA/5+QsUIQAgqGFo3vu6yL1XHlnY+uUvNsTW7pLYEWkTnrndj66XtzbqG++/PLHmC+siTx0gBai0eMPaq4J/HgbbAICghsEIPNJfFwv+rxtie29exyOnmr0HW3Ix5fq1V3PrCGuAxJN37DwAAAjqLAnp9185pjzSaro0czHGu3eaRSWsH18jFAQgsRQoAgCAwSDLxxC8/42J0tbGL44O6xgfE2OPPilGTj4mRk6cEqOnHhcj4xNqJJN78vC7ZbopmVWj4R/v+oe39Vf/s7n1y78IBXrRP04Hnd74WFFs7/R0jSMnj/nXcVyMTpwQ4vgJMTLqj6FGx8TI8eNdP7u3uemrZfU9e/fuKvF876bY29oSYnuvjbC+Udr91a3Ste98avnE339x8fQ3V0mhBZAcaK8AAAjq6Pj1P38yv3v7xsre5laxVTyPP/6M3MFQjJ3+lP+a+1g890hOHFxdPz/x2b8n/EOKbM8/LvkCVW+8siM++Bf5wu6dZmFv697U3oNN+bm8nG8YPfmIEI88JkZ9Ad+LaO4oxls+PyLPKwcC4pP7gtsX2bsP7ou9+3f9328rke0L/d1bv569+1/+fenaa0/Mffr712vUGIBEwMZOAACDaiaKoD+ufevE7O7d+0Fox1juKTH2yc+KsZwU0Kej+PqGfyz6R+2w9/e9r4v8xO98TuaQPi9imrqVuzAGIvvuR2LvzkfBbo2jpx6v7d65UXn6j/F+ATjPav2GGC5srSnOFR6nIJ1/zmw9Du3qhawTZrYeP1fIXE56Yqh7JMjecV6sj5769NKxv/vF3Mkvfk0cL3xZjD/zd6IS05K8f8g81lcP54OWG698cuEXy/4x6f/zjH8si4incKVHfvSx02L808+Iid/+nBj/rd8WYnyvNHLyxIZffkVqEYDz1GL+PAAAgjqt+OK1ePzzUxsnf+9rxWOf/6IYf+rZfsM5TFKVXoFO8cm+qJbies4/pKeoIkQ8uxzKkJGxJ58W43/7TG7s6d9a/+Bf/s4CtQnAaRaHGIjLz81RhACAoIZ2Yrrsv6yPPflMLkYRHQrpM76QrvhHzwLZF9VV/zgTp7AOKtqpR+UgZP7Dhc+ty8wo1CwABzlXaGhbMQgV//OEdgEAghoeEtMyvGIl5svw/GOyXyHdTljL8wjlgYqTohygIKoBnBXVNS2qexXHTS2mCfcAAAQ1tBXT5RgvIZg+9UX09H52j+HwRXXTPxaEirH2Yry3AqIawGlRHQ7Au4nkWvA+9X4AgMxC2rz2YnohZjEtBfTMMB7pLsJannfaF7TyPudjFtXTUuhT6wCcE9XSTszorcSL4uAOiA2hVvI3KCgAAAR1OzFdilFkSpZ9IR3Jwh7prfYFrfQwrYl4tguWonpJDB6zCQDRCOsqBQEAcDSEfBwU0zIEIa6Y6SAOcVAx7Qvjon/0nX/aF9XSGy6nduPa1KHsX3eJ2gcAAABJBQ/1QaS3NI64Ximm+4qV9kVo2X85K9RUbK7l/+VLQ6jYxktaMHcT1fL7J/3PxhU3vuJ/t0foBwAAACQRPNSamz88V4hJTPYlpqU31z82hPKkl44YAOT9Y9Y/rvrvXfOPfC/n9gWtDL2oxlAGOX29AAAAAAjqBHMhhu9sCJUSr1cxLUV0v/HOJS2si46L6gtk/QAAAAAEdULRsdPliL9WeqZ7zuQxZDiGvL91x0V1Tot/AAAAgERBDLUiaiHXb5jHgiHBL8M/JnXavK6iWnuMoyybs4JsAvZYrRfEUWsEzhU8Cmjo8j16wEr5DlKeof3Jx3gV0laHdrrOTpAPseQ/p17L5FLi85UfbUOb/r3VqQ4IahDi+Yi/b6YPMS07E1Np/MIsJtM9vr+iO7NCROVSpCoaEXXyeT2rX/M9CZL96hgKCDnoeleoDYAQEgc71IK2GcOW79u6bBHb7QchTZ0De96h5y90m+D5KfrpG64krI3Lujel+81CH228rtv5Ff27h/1EUGMU7CBT4/VjgE13JjK9XvGTC7/oeg0y64b/3hn/16simuwnOekVJ9tH38a/pA2/iQFJ7tB55vX31LWQuJKpLab3vaQPZdQxVL6tIk12wLXYPF1KvOYNnKmR8g1fjnp+l/XzawjIchsvPFRP9u3nJTzZCGowQ9UX09Ve36xDLsoWruO86HHrcRkeokX1eoSDG4+q0lVEXxBHZ3mx9VzkMauneGuBgEiruFae/vMiurUVRX3M+9/d0OV7MWJxVjY0gF/0j4WMtcrw+S1p8XQJce18Gy9rER1FWGOr/WwEbVuGN+K5ThUsSowOaWT73bTFVkPv67zam73II4zV+OeCDmC1LlMmXtXiJ66sKOFAb82/nhv+saC9m+kQ0qv1dT2ALMd0FXmh0khuBNfSKTYbXCTcAVY+vzWen3N2dCGwW/upZ+No32H9WNAeckBQQx/IUI/mAA3PiiDqd1dFuU25iG83RToAaXxVB+CacJWdwbzuHFYSK6zlde8LaZcEUDG4JoR1Uinx/Jyzo/MxOiOOsp0LPCQENfTGYj+7ILYwZbkx9z0oiKCsEO37nYBrHUA3yrpzWEqU12W/nF0WPKGwXsOjlUhaB0Z5iiPS9j3ruB1Vwnq1flWH8wGCOtHYFHF1X0ynYvSptzG3GfrRYEGiCMMOkiSkDxOGK8w6Xs457ZWeT1DZlnTZljHbiRXWeCSjad8F3b6XEmJHpZi+St1AUCcdm+l85ob4rHPiUod+NCyd3st4B5ALvLsq7CCf8LvJCbVAy02PnPLyuhbe0U/ZrgQhNpBUQo9knqKw0r5nE9y+55mJQlAnltPfXK1ZEq/LfabIO8zbFm97GK+8rdCPSxnuAJR3Qnl300RRKK9L2UExnfTp1bIWZXS8yST0SLJDrFmnxIpIjlf6KMLYe9o2gjqRXLQgWBcNnMMGQ4VW6Kwfy6bLq5fc2CntBMpaTOdTeofueFTTI6ZbRRkdb7LbxhohPEbbdjllbZu4agR14pACsWHoXFKsDpLV47BwteU5Hzp3sH9tMpTFpACey2StUyIzK1P3LnhUV1IkpkPyItneOFADziWKYWA7WkjZQLlVVK8wYEZQJwotfmcMienpAbN6tOOihds1dU5ZXibuczlz3un9qclyxppafB5VFVeZxun1i2wgkgpmiYtHTDtlMwFBPYSoluJwmPhg02I6EJvCrJd6Ue5+aOJEOmxkekhRXdXe7myJ6XRNTQ7aQeQjLHP5XfMpLMumMB9+BfFRJvyjb1sqByFpF5sFkZ2ZTAR1ikR1VSjPa78i1vOPScNiOhStM4ZOV9dZOoxen39MDtipS890JYPVbE2k15vSTwcR5Ur2pKYg7MZFti9OHSssVOxZTKfZM32YkvOpSBHU0EZUyxjjM/5R7eHtDaHipaVnumHjenQ4xLDCUwr9aVtlpr3Mk6K3uGr5nunMeaZVJyC9DEVa2cei2v5UpvJOl1NYfg2BdzrNojpPMXRkSWTPMbHEIkV3GacIjhTVwcLCmz88NydU3KXctbDVwMnc1TXTHukOgrX64cLnmmKw6S0pYGdsb5qiN36Z9q8zr8vs+ZYyk98t0wDW9Puyh1p0VKZ1PSSq12wO9nwupLTsFvFO9+VQaPZYH13ZlnpNOyngYVs6G7EtrevjXV2P6i3PSdaZ0/q1GMlgi3qBoE6wsK6K3rzVtkV1zRernh6Z92JMGkLFTFcjvk75vXjODnYAcoAR13Rds6VDuNmumuvOIC/iSd1XDAYb5wq2Ziyi6HhbO9woyrfhl1eVhtUzc355eQO021BgS6H0rH6Nqo0Ugl3zzhUWUjBQCfsjE7a0oPtA2zZTzlRfFtIh1XngWmtj689atDuFYEBxrkAfi6CGIcVq4Dn3hfVRnnNJ4D3PrCfYPTGdF9EvKGntDBp9XGsoHs7q+hWVt05mOLjiX2vNcNkXLd6DFGiXgrLu1VO8X75TunwHFWeLNKwIOFeotzzr1vYciqai5SuQu+ZVHc7iMthAZThs2lLZjmUWrOWBZ3+UDav5z21RC/+SxXrBDBWCOjZh0+ptCI1ks8VoJk1YV4UDnnOTvPq9n4VTaOGzauij/sbrLyTVeKxFJEwbujOoDtEZhJ4ZeVR0xoHzIqqpzNW6Z7iTsHHdaqHwIELiYPnOaZskQ1LKfQl5vNNxiuyGUDNwyy3ZY2wOPqWAnKbggz58QdiLm14WJsOoVD2Z0R5r05lIckLNeC5QKRDUUTbAohYE7QzevH5PQ3dw5HONT0iXtbAodHhPXQvGWmLEtd0OoFVIL1oRWeqcVd2ObC8CClNgzRg855Tha1SLe811unU9cJnTHeSFHjpevNNuieuK9kbOCzvT/MWg/UXvCXbNluaFnfUQgw+Qe6sjNa0xpGMlb/DMF/zzLuOldofRVDe+1bpMqRPm++3USeV1Z7ahBRBEJ6SL/rEhetvBLszFuaEFeFY7gFakV2XSusdSdjbnCnIhzJyws3tnSMlwyjCTA4Cw421aKN+mjpXtll3Iy7ywclVYnytUhPIk22gf8xSyldSX9aDN2W5TauA8abhu5ASL3BHUEQgZWcmuisGme+cDIc6uRFGI6bIe8PQ7ag88mf7n13SIiKssCXvTwGpTHbmQL0oPhVoIMynM7JDZqdxMdjqmsD+DpYR1J2GGd9ptYe3pQZHp9lHUs0TZxE7qS7OzTb20bfMDrgs0OgS1bTE9bLxSUbArURRietgylp7MdSdFter8bG3OEI1X5eiOoaE7hqqlb8gbmSkyn8e3GmEZtxNmVbzTiRDVJnaQbcf5DJeqaQ99tGJ6v27UDQ+K8+SlRlDbFtMmYFcie2JaCh1TXsiCo6La1hRtPB1BO9GgPKm2ROYFA7NEecP33IhZmOGdzraoLmdy5tS8dzrIlBWbDVWzfCbrBV5qBLXxRlcU5r3K84R+WBObJss1iryk/dbFYmrF9MHOwZaodi0+0ItZmFVYMJ1YUW2yvWZxS3LTdmDRgcxec9QJBLWrYjon7IRo5KisZtGeZBtlWvbP7cqzsjE123BOTB8U1TYEp0uel2KM5dskTV6iRXXF4BnPZrAUTdpTz4kNUVTolqkBco6wDwS1SWRoRt7Suc9STYwLE1te//i91HYWz0hmHE+PNGOwgwjJD5Xxw3S8sdnsI5AdUR3mHTdBKVOzpqrNmezbXQqbumjwXNgmBLWRBieNi01PFiO/5JRn3oF0ejYM26Lzmw+Z98SFuLQQi9RlMCgmp/iLGSo3kw4t11JOmtwVdoomhqA2gRRQNkfseapJoohb9Jge3NV1fmL3UZ2V6enUYT1yJgciBf9ayP4Dg7SNhjC31iBL4smkg+Kig3XClH3C8YegdlLAQLKRXup4jIuKYzM9AJtLWPnLKVXToSnDdKqmPfsy08Iai5VhAC4ZOk8xE6Wl7KmpdtbQoTeu4Rk6T85CmlDIlKC2I2Ag+cQVJmC6o0verngq9MO0J2iYad8rFu5SCvyrmd5oAwZpG54ws84gK95Ik97pmqP3+K7Bc+GlRlA7P1KvU00ybYijEn7tSGreYRn20XSkndvqSOVAfl17qxnUQ7T1MRtZHUyGtlx29B7NhqRBrIzT4LrSoJoYxRP245xl2EfujddfiDorhskBXj2xu+JJL/VqXQqHsqEz5gJv8CDlsX8ttgZZJaHivKtCTumzkyF0Rs6YmNgwLC/S7+wxKRDlnhIuLio2GTp2muaFoHZ9RHaFauLsiLxb3YhO3Jif/r+U8Od8UZhNHzjM87wo7M9alIWKr/a0sK7S1OEIh4Kp9lBLbSmpWR+TYrOYgbqFhzpmkh7ykY/gO2pUE3Nor3EUZRq1AS1Q71pQaf4aBs84NcS1eBEOrmS9W/EFwQ3/WCAcBA7VRWn/TMycpd0biTgEBHVkXPrvUQgmj+1+rWA9nu3/3bofdYfzvMFz1VNS70wOCoYVplHHo0vvmpxi3vBFtYy1LtPs4eP2jeBEUJuHwTuCekDu+oP83T3rsp0qYk1oWY1v/ulf/jpqg2zSmHkpec4mw6WGe552cmT3ihz8h17rJbzWmadJEXSFeGAENYI6Mj7xaFHsbtv8hgZxkHbQYR92k+x/dD/q2zIp4NMSt282Xn5YIXquMCfiXcglvdZyQdqGzg7CdsHZ5G2KIFJ7CoCg7sit20LsbNn8hkWqh1VMp1b7mLvbO/6PB1EbZJMLaBqpeMLmw1byBs4xLdzwEEoxLUX1BuEgAAAI6njZseahruOdtov2UlsZtPzv39wxLXA7Y3rXPLWgLy14jon8pkOiOhwktC5iZAdGADzUgKCOkOPHnhU7D2ydfY6qEYmoll7qhunz/vzmfX+wtZtU4098pe1yVgOWacfKunURY5lHDRmHgSUgqCNjYiIv9vZ84bRj+sx1NmeIFPNe6ms3k1weadusweT9mOtklag+42B5y3tc0aEgRcwDAPRIgyJAUA/HtnEv9UWqRaQYzfgRxE/fvEepuoO7oxsZ/nGuMCniy/7RibzY39ocbx0AIKgR1JYxuzCRzB4RYzrjh46fBuhHWMsQrxnhZriNXLyItzpdTFEEAAhq99jeNHk28k7Hg7FBzM/fv0VpwiCiWs6UyBAQF73V0kO9HixahDSQpwjAAg2KAEE9PFvGRHWVKhE9b7z+gjQEZnbVe/9m0osjbZ3t84m5UhUCIr3VMgzEc/AK531RvYLFSDAqfMdEG79CYcIh3qUIENSDcX9zfzGRmTjqGtuMx8rQ25H/j1/f8gdXepHqyEhSPQNpE9Qm43+jEblyweK5gswCMu2gsC4jqhNN0dB5yAYE4Bjjib3y7e19V2QQ9vFY7IIOhhzQyOwGQ3Ag3GMswrGiHIitGkwWIb1YKl9yGkjuAEFl+/F0/PIFoeKZXRHV8voqmI3EcdbQeeopLyd5f6bSkc5loLxERu4RQW3nyselqFa/y/R5D+4LcezEsIIOYkIuTnz1ez+rDSVaWsM9dnaTbFwKws2Qg2wJ6oeFtbyXeV1H4868IUX1u/61LWA9EoWpQVnaxZNJh0KOVLgQBckN+Xj0kYMNbriwDy9FHsEkM/AsgffXN/bDPdQgK+rnadJgF1PxNE1npoi7U5QzEcorLBcvSq9XI+YSnif7R6LaQ9nQQKyRgf7K5P2dpvJBFCTXQ928dXCELsM+5CYvY2PRCDm1uER6G+Siq8Ihz8HbWqQ3Ul17StW8Fn/5Q4awLmrlQcTPwILp//zqxqGaPRZ5jTR4rudTUkPSuYOkEjPLwaEE7XkhPcbxsKIFPrjPeQcH767ytjDnzWcbc0BQd+QJX89eP9THSlE99sggZ+t9+kwJ6aUOHWix5b0yhGEudcK6VJX3fqGjoSpVw/zSy7647kkMyWwfr37vZw3RZ5jA9XsP/B+3D9WFnahXwZvsAEopqSkm8+26OcW9Hw4yp23CBRFtmEs+SKdH6IfbqIFX0dDZspDhw2SfWaQCQhQkN+Tja//w4VH6g7vDdIq9GEXZYW6I3r1R4aYM6ejsStWCf1wVyivWbdQvBx7zwf0rAW5NOP2HxvU2Q8XIPdRmBd9qPdmien8GxxRuiwiVcm/ZP6S3eEZE60W8wG6KzmMyM4uXgfIybU8R1YCg7nz1owc9n+HiRBvGSYnpFTFYDFzy88dKMS03l+h/+iwXlFup2uv9v93PyYOtxn/1m4f/sL0Tdadj2oN6XiSbkuPla1Nc13TaPSmuqxF8Y06kZ1YjfSiHSt5YO8hCeleZutIsZ6mIgKDuxG6bTA79e6m7N9x9MT0MclX+UsLFdG6o+y9VF4wNcDR/tHH94GLEkJPHou10VCdn8jtLOqtEUrlg+Hxe4krg4CLGasLKG8yIaWk75w2eMUu7+Zps8ww4AUHdkfHxh8Xw7k6/XuqbXQyiFDWmhPBs4qaeSlUpoteEmdXp8/75ut1/z6I08E5vfPDwH+SmLj9+pRFDaZkWfeWEigj5jE0uBKonOqvBvrC2uQNjIeEDsDSK6Zx2RJikmqESNBnmlSfsAxDUndjebh8e0J+XulsHNy/M5pxNWujHrDC7yKrj/ettyHviSO/03p4XU1mZ3hwoqbGx84bP54k0sL8D46Klb0AwuCemTbbfqoMDS5v2yXS7ZxYHENQdaB+u0b+X+iijKIVk2fA15xO24OyC8fsvVbvdf1dRfaR3ulO9sC+YZFYXsxsSmJsdiUpIFC0Iu3RNc6uMHDZ2OXxegEtiupCBdlCw2E48w/a0pENwINkDLQS1FV57sR5M77ejdy91vWMDtEMyFkgo4WujYXRbcNdVUB/pnZY8duLtGEvN9I6b5YRNVZqegWlYWKDkgqiuWhDViIX4xXTekpj2Mrrbn2l7ukQlTfhAC0FtkaOm96WXerMHUd15Cm3K0lUnRSA5ef/v3dmsi/977eg3PJ2Ls+O5bOGcK4kI/TCbzSAkvYuwlKjOokhKq5iWdu2qJTFhOkyo4XgfYcueFhOfkjRZg0sEdbLuYOzohQvSS72zM8zZbYmYpFQ0W6PMYcq1/if/9S9VisR2TIw1xA++2oitxFTYR8NCfXHbs6LExLyFM1etXKs7aSwvZnCgnjbhkNMZnEzHTIfULHin33W8j7BpT1cSJ/akvYpmPwuTZZ05L3XyBfXI6NGGRoquzTt0UC7SPdtHO5pv/K+/viw2t49uqKOjngN3d9HCOWXox6yjxl4+jzUrYtp0zl3l6V/R5emCqPYwBokW09LbKb3SttqmnEGdc7gEchHEJV8yfs3SXiVlwbeyU2URxSJ1s/Y2c7m/ky+ov1X0xMjI0WEbcjvyrU0XRmswZMfyzm/uzIi/+k3nRZKbW5cduNaqMLuYJmRJ50R3ydibTKtouyOVSC96vmWQcpVdBmEgIb1aX9d1P291cG5nIxeT6xJsZ89YtmBPC8L1jFtq5mNd7CdGiGqRuqmyzlxozWg6bmPE6/jn+x8JsbuHoHaJWtnr8xNz6//tlxfE3t7R4mdiTLz6+7/rxX5vKi7/oqWzrzgjqpVnat2SoDC/CEuFpcy26Vivxrj6n4WEyRHR+WDafbW+oYV00fI31nVGGJdFkxJONgelyp7WLJy5pEMpcg7WNVm3NtrUsXIEtsrUYCvnnAMIQd2Lnh7t7JWUoR/3bsY9ij8oFpLBFUvn7WegIo3pzBs/+gv5HDuPeEdHam+8/oIreVpteFVaRXW8MdX7YtqWcV80fL1hqEc78lpUL8RQkianRZNiV5IkoEtBW5MzGUrgzIto1sAEds+iSDVZVzq1LZP2wIY9LQd2zBVR3Vs8vm3bb1L3zGfJZIyn4i4efbwmPvpw5ciFapKdLSE27wlx/OTDI8GjjYsUlDZi4y4npGTjHlA0PhbTvew4dmzcnXKVXpXV+qJF4zerRe1M5Js9qFhum0a9amER1lIPQmjevzcpcOciSVFmJ889tOd8D+knn22pI8WYr7diKdTjsH03NSAuBd5IlbnGhj1t+Oe/aEmgFYLB0mp9JtbUhMqbuyS6h88Vu+iWYTGZdjYfzAKonWJTTzo81IGgGOk+JbR5W4jtrX7Oa2OFsaSWiHKtlW3d/6WujVCV0aQvphva+9HZyMhwjy89V3OsXi4Lu5vMFHVHEI0oUx67dcti2vwiLLVwrNcyUp53NRWct1iWNmLP05ev2xxlLcY6HWXdpuIW04u670maw8R2OJrNWb9cS7uP1lsty0yFEa30YQ9szgh4xtueqwvqEdRH3clobwuYZOjHwVR63TrNReNGwb7nwaxxN91Yu8dPV954/YWZIHzj2PhaT14Ut8I9DtyL5fPndEd21doGMEpIr4j2MX02xETT4LUPOh1d1oOVFeMxi/Z20ntbQNKpWoybPoytnPlrVgajyi7Ytqdhu1+wKqxVaEerkO63vPLWRKrSJ6Y1ypK1eoGgtsC3pmsds32EBPHUt1oXKea7VK6qwRFbw4JAtUutXDXsyejqffSFsSrv4h+uiAfbvQm4p067uQGI2uUvimceelY3tKEevjNQ8aOhkC5HcA+e9uqb7eCH8wLL+76qByyzQ3cIyoO3IezEnnsCki6mo5wat1VfSlqUhm2maEycKs+9be+9vFY5Y3FDD6jNZas4aFMHEdKtzFsU/TWL9WIlrZvrjKfqbkZGL4q9ne4xVrvbQtz1tfcjOenZ7GWnpxkxvEdJLTKJOt7VDDNC5VodtvFWfIHemzj/J3+0Iq7d6lXENcSlf+puGI30OK3WZT0rRvBteW2opdGSHeZlobIFdO88lSdWHlPa+EU59Wl+EZYy2qYMd1g20tNS12Lkii7bRpfrkM/9rL4WWx6aesJmviBeMR2u86gJe+nNCgf6zNV6a1uf1s6GwfoRZUujsE9loUIWmofafC/2NNdSBlMWrlmeS3qpFyzc9yVhL7d6WKbhoE7arXf1a32IeoGgNsrEiarYvNPbooV9UZ3v0fBMDyGqhzUg8VIrN0SpKu9/mJyrFe3t7k7xD8t9iGkhnng0CdtTz2ivRJQitfixiFfGqynazzbkRfy7d844EurRj1CYbSnbung4vjMnokuLl94t2hHTtutN1N7C3FB2UPXHoZMrymveH6DvDw68DrY3CqSX2vwGWFKrKMeBbft1uJy8QCsllPSEfEhe/kJD9LNVsRLVefH9n+R6asTqQfc7fS+v50ySR11aVMvrnxT9TwU1gnLrR0z3J4Sa4vrtZefLb7/+xDlDkWsR2a1H3GK6YmHFuq3NZjqJ7MPlGpWYbgobW7RDFMzFmgHB3sJ729ftCTd2kCwecUSJrUXiF2meWRbUkvHj/VUCKaqPTZR6bMRNvWDkjFArjhsdRGQopCsJDfNoJ6qb/jGjhWG3DrwulFf6TM+buJSqS6Jfr+LpkzXhfTcZ5asGVXMCWlk2nmpLLdYpZqgML6bGxmSHcNbSBWfAYiJLUJUdA0mVsrBooXyrgs3t+pOfqbujV75UF2+se75Q7r2CPdia6qthqumVueDYj5PaF5Jp79yUQPYCwVyqynLO6yMMKagH4rsvk1BdEds75b4+MzEmxKdPJ6szkEZKTReuCJBTlaZT5IULirIkzJapSolC2k531tMomxTVhjWmr72i7Wk543VqXthZZCrt8xpNNquCOhBaxxfFZh+CenS0JAZNx6OMopfZGtT/FuKHhfR+CrGd3f4++8ixqvjBV5M3gkZUh2K6YqFsmxY3gHCRRbzTiRr8zFnb/GQ4KiLamGREtVlylsq2phe3F2m+PUjJVN7Vy1/wxMho77G+u7s58f2fBF7ml956Z8E/lqgaEaC82/spxB5s99c53byX3PAJ1alWMvrk7S7CUmFZWfDaeo6EDEAvdV6FAFadvDoVk5zcuqTsSTWjdUs+O5sL+WZEvGt/ENSxs7fbr9g63+JFmPVF9VX/KFBFrAjpnI6XXv94ZC3zgvfnob6YmNjpzqJ6MmPGqhLJIiwVSpLmAUtDmE4zCDaFdBLW0sjwueQuns+mqJbOiWmrdUudG1uTaUH92ouNPkfc4cLE0KBIMS1F9ZJ/5KgqxsS0LGeZ0/pgjsutvrzT/T5blzuBMHtK2reNDhdhVSMs26qIP7OKrbKcIdQjMUK6kRBbFAqn5NYrJaqzMPPXjMw5ocrVE9mdUUVQt4y4ezUOMn1esc37pfDb8EX1LNVlKCFd8A/pkW6fy3pzq/dzjY0uJt47fdBYNbTwS+v0vafFhRdD2arvTs86h2TntE83sh3LmZHHEyWk29uiJIvqqnZSNFJaz7zg/qIOH8p2mCKCWrz2YlMcm+gn9OP8m195rl1HJT3U0lMthXUZj3XfQlouvpNe6WLb92zvtG4F392Y/PS1aurKSaVknNOdWVo6gnAR1nSs3lRVttNa7CR5INZATDtHXQ+EpcA5E8S0J33mQNWvpIvqcOYvTU6K0Cs9HdtgDVGdYUEt+UaxKnr3TpX1Ji9HvT8vVGaGDb14MU8VOlJIl7RH+qrotvq6V+/0yIhIfWNWHlXZESwm/E5qWmQsO1S2y2KwzYlcwNPliZiOX0CHokIK6MlgIJy256Lu54xIdkx1mpwUy8KVRa3pnwEYmPGM3GdFC7tePMsytOOK6JwmJsx1O++LatnRye1ba29+5blsxzRKb7Ra3FkWvabxkZ7prZ0eBbUvMte/m/5GrDxcC8GWsqqelRMm/BZjCe/orWxl/ZnRGyHMC/fTQTV1eZLNY3gh3K99vnLgs67Wabt2aNJvKwsiyWkow7AvteHTvIh2B9Vhqer233CsTOXW5JO6PAmH/ViiZIVL/3lW3L3XSzq85j/67DMzn5kYGyQnpzS8l6Wo8MV1+o1vqZrXgmRKDLqF9d3N3tLljYzUxfp3JjPZSlfr+QQIa7eF9NFl67Kwlp70ucg6U3PCaVGnLnTpmqYzJ4jN1g3pLFky2E7ieR5q4ycpAM8Ldzeyaeq2v5iIOHyzdcPT4XkIauf5wZ+viZ2d7tuMj00svpT/jIkG52mR/W7o5TgiRtt14RzuBpnXx1TL74MjvdO37vZmYE4emxQ/fqUhsowS1mWHOoPQ8F9M/JS36hQuCJXtJ24PVlimXsRlgKCGqAag8T+P1XpoS10ZTEsbKme7q4mMw1d1I5yhzqSgHs+UMdjZqYiJ8aLY2u7cYe5uX7i7u1d7ZHSkPOQ3Fg831pfeeqdVjBwWIQ0tvqPxcKsQjaIWEFOH/jq8YO7G/Qe9vW9stJJ5MS1R3ooFocJBpPA7G5MAlILvcvCaltRtakCgUm6pjvZsS9uIgkaLkKaug6vtxAtEz754cmEAOui9VAPxqhwVJX0/Ue89URfK8XYp8U6J/bqxGGN5xspI5gyC3BFxdPSq2O2yicjxY9WXnnm6HPPVyg72ki+uzS2iUmEa87Ebwl6906Mjy+LPvzMnoJNnoKCf55Q2YKafq6cN/5VgK9pslW04KJ4S5j1ZnlBxujUnOlMlLEwMohvGBgV4qJPQRkotA9B8op+HagOt7T1v+BsaLe3eS/3gWYXYFFv6pm42lJCPxPFvvLJ4sLXS5V3N33v2mebT42N5B65YNrrKUF5rFbYh45zKTjyD2/dVurxOjI3VxU+/nc24aTPCSBqv04e8BMUjvCTNlroWhig1yCrRdvCS12X6bEuHmxPtvTFhm5Xl+7Yu3wbiDkGdYgFVaGN7Dg/WkvE89u8ndFQ83+KwaOe8aJ15Dtt8+H91NmM60D8drhNTuowS60AbyexD/bdXVsTmg87i8hOPipeefMKlq172RXX/la1UlcZtTbgyNSeFtBTUHWvmSEPs7U2magMXAEBQA0AqGc3snb88VRFjY52nr2/dFm/ev+/SVc++9NY7K319Qm31ve6MmN7bU5k9Oovppnjk2AxiGgAAABDUjvNS/pmKmJjoPKV97br4qFu8dbTInRoXehTTeaE2onEHmSKv866ITV90T4sffZNQAwAAAEBQu06wEcvWlgyAP1q8bW+Ln9y46dqlz/e4S6MU0+6swN7xByb3OmT2UDshTgvvu4hpAAAAQFAnhtdebAq1NenRIq55y7XQj0BUd/zrfko8N+gW6iHF9ImJCmIaAAAAENRpFdXuhX5026DmvFNlfH9LeaiPGLKIsdFp8eNXqlRGAAAAQFCnVVTL0I9fX3fpinMvvfVOp6TpRWeudGtHiM2to8W0LPc/+7ZHJQQAAAAEdRpE9WsvyrzH1bZ/v3NXvHnrllOiusPf3NihSHqljwr1mBhTYpowDwAAAEBQp05YV8TI6HLbv31ww8V4ajcJ46b32mb1qIutnTOIaQAAAEBQp5Vvf1luoFLRmScO8t4H4uebDyijbkgx3T5uuvrq7//uNHmmAQAAAEGddl57sRrs1jcy2jjw/7u74t0PnFukeJh4Pb9STG8d2lp8YkyIU8fnfCFdeeP1FxDTAAAAgKDOiKiui71dKaoP7qq4+UD85G+uxSqq3/zKc56Tglpu3iKPg2K6IT5xUm7YskylAgAAAAR19kR1U3z7yzNi/JgMA2keENXXb8R1VbUuf78cm5g+vAjxEydrYmtnUvzH8x6VCQAAABDUWeaVqWVx/JT0Vu8Lw1u3xZsfxJJO72JnuV2WgrsRq5iWWTxOn5wRf/LyDPHSAAAAgKAGxctfaIhvf3laHDs5J0ZGmjGJaq9LuEfIYmxi+vTJ6qtf+fwZcfnlGpUGAAAAENTwMN/44rJ47JNnxNh4NcgEEp2oliK+0tM7a+Wq6B4aYlZMP3q8Lp57atoX0iw8BAAAAAQ1dOFcoSm+NV0Rxx45I0bHvUBU21+oWHnzK881+nm/sLlAMRTTp443xGdyFfGn35wUP/iqR+UAAAAABDX0jgwDeXV6Whw/NS02tz2L2T+kmO7P41wrd95SfRjuPZBiuiEeO1ERP/rmGfHvzlWpDAAAAICghmGEtRcI652RyZ/86m+qBjd/afjHpC+mBxOs+6LanODd3qmLJ05VhPfdM+I/fQMhDQAAAAhqMMgrX6qLV/5x5R8cP/a4/685MXi2DSmEF7WYHs7DLEV1rVzRwtob4nqkeJ4Uf/qNSTzSAAAAAEKMUATR8NJb7xT8l6J/TPmH/D1/xFsbWvBeGdgj3QulqryG8/paih3eKa9FivkrOhUfAEA0rNYX/J/zBs40Lc4VPAoUABDU6RXZOf3P5tBe6OEEdk6La0WtTOcDAAhqAIAeGKcI4iNWAX0YFWdNhwMAAADQJ8RQAwAAAAAgqAEAAAAAENQAAAAAAAhqAAAAAAAENQAAAAAAIKgBAAAAABDUAAAAAAAIagAAAACAdMLGLgAA4CqeofM0KEoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIC++f8CDACTZm73LVQcGgAAAABJRU5ErkJggg==" alt="OSIPTEL Logo" class="mx-auto h-16 object-contain">
             </div>
             
-            <h2 class="text-xl font-black text-white uppercase tracking-widest mb-6 pb-4 border-b border-white/20">Filtros de Análisis</h2>
+            <h2 class="text-[11px] font-black text-white uppercase tracking-widest mb-4 pb-2 border-b border-white/20">Filtros de Análisis</h2>
             
-            <div class="space-y-8 flex-1">
+            <div class="space-y-4 flex-1">
                 <div>
-                    <label class="block text-lg text-white/80 uppercase mb-3 font-bold">Año de Inicio del Expediente</label>
-                    <select id="filter-year" class="custom-select" onchange="updateDashboard()">
+                    <label class="block text-[11px] text-white/80 uppercase mb-1 font-bold">Año de Inicio del Expediente</label>
+                    <select id="filter-year" class="custom-select text-sm" onchange="updateDashboard()">
                         <option value="ALL">Histórico Completo</option>
                         <option value="2020">2020</option>
                         <option value="2021">2021</option>
@@ -87,8 +86,8 @@
                     </select>
                 </div>
                 <div>
-                    <label class="block text-lg text-white/80 uppercase mb-3 font-bold">Empresa Operadora</label>
-                    <select id="filter-company" class="custom-select" onchange="updateDashboard()">
+                    <label class="block text-[11px] text-white/80 uppercase mb-1 font-bold">Empresa Operadora</label>
+                    <select id="filter-company" class="custom-select text-sm" onchange="updateDashboard()">
                         <option value="ALL">Todas las empresas</option>
                         <option value="Claro (América Móvil)">Claro</option>
                         <option value="Entel">Entel</option>
@@ -100,8 +99,8 @@
                     </select>
                 </div>
                 <div>
-                    <label class="block text-lg text-white/80 uppercase mb-3 font-bold">Metodología de Fiscalización</label>
-                    <select id="filter-type" class="custom-select" onchange="updateDashboard()">
+                    <label class="block text-[11px] text-white/80 uppercase mb-1 font-bold">Metodología de Fiscalización</label>
+                    <select id="filter-type" class="custom-select text-sm" onchange="updateDashboard()">
                         <option value="ALL">Ambas Metodologías</option>
                         <option value="Convencional">Fiscalización Convencional</option>
                         <option value="Preventiva">Fiscalización Preventiva</option>
@@ -109,164 +108,163 @@
                 </div>
             </div>
             
-            <div class="mt-8 bg-[#0A1628] rounded-xl p-8 border border-osiptel-cyan/30">
-                <h3 class="text-lg font-black text-osiptel-cyan uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Glosario Institucional</h3>
-                <ul class="text-base text-white/80 space-y-4">
-                    <li><strong class="text-white block text-lg">CVM:</strong> Cumplimiento de Velocidad Mínima de Internet.</li>
-                    <li><strong class="text-osiptel-orange block text-lg mt-2">Sanción (Multa):</strong> Castigo económico tras comprobarse un incumplimiento normativo grave.</li>
-                    <li><strong class="text-osiptel-cyan block text-lg mt-2">Alerta Preventiva:</strong> Metodología rápida. Se avisa al operador de un error para que lo corrija sin aplicarle multa.</li>
-                    <li><strong class="text-white block text-lg mt-2">Fiscalización Convencional:</strong> Proceso burocrático, lento y formal. Toma muchos meses pero puede generar castigos severos.</li>
+            <div class="mt-4 bg-[#0A1628] rounded-lg p-4 border border-osiptel-cyan/30">
+                <h3 class="text-[11px] font-black text-osiptel-cyan uppercase tracking-widest mb-2 border-b border-white/10 pb-1">Glosario Institucional</h3>
+                <ul class="text-[11px] text-white/80 space-y-3">
+                    <li><strong class="text-white block text-[11px]">CVM:</strong> Cumplimiento de Velocidad Mínima de Internet.</li>
+                    <li><strong class="text-osiptel-orange block text-[11px]">Sanción (Multa):</strong> Castigo económico tras comprobarse un incumplimiento normativo grave.</li>
+                    <li><strong class="text-osiptel-cyan block text-[11px]">Alerta Preventiva:</strong> Metodología rápida. Se avisa al operador de un error para que lo corrija sin aplicarle multa.</li>
+                    <li><strong class="text-white block text-[11px]">Fiscalización Convencional:</strong> Proceso burocrático, lento y formal. Toma muchos meses pero puede generar castigos severos.</li>
                 </ul>
             </div>
         </div>
     </aside>
 
-    <!-- MAIN CONTENT 4K -->
+    <!-- MAIN CONTENT -->
     <main class="flex-1 overflow-y-auto">
-        <header class="bg-[#0A1628] border-b-4 border-osiptel-cyan py-8 px-16 sticky top-0 z-10 shadow-2xl flex justify-between items-center">
-            <h1 class="text-5xl font-black text-white m-0">Reporte de Fiscalización CVM</h1>
-            <p id="header-stats" class="text-2xl font-bold text-osiptel-cyan mt-1"></p>
+        <header class="bg-[#0A1628] border-b-2 border-osiptel-cyan py-4 px-8 sticky top-0 z-10 shadow-lg flex justify-between items-center">
+            <h1 class="text-3xl font-black text-white m-0">Reporte de Fiscalización CVM</h1>
+            <p id="header-stats" class="text-sm font-bold text-osiptel-cyan mt-1"></p>
         </header>
 
-        <!-- MAX WIDTH MODIFIED TO 3840px (4K) -->
-        <div class="p-16 space-y-16 max-w-[3840px] mx-auto">
+        <div class="p-8 space-y-10 max-w-[1800px] mx-auto">
             
-            <!-- RESUMEN EJECUTIVO 4K -->
-            <div class="glass-card p-10 border-t-4 border-t-osiptel-orange shadow-2xl">
-                <h2 class="text-2xl font-black text-white uppercase tracking-widest mb-8 flex items-center">
-                    <span class="bg-osiptel-orange text-white px-4 py-2 rounded-lg mr-4">RESUMEN EJECUTIVO</span> 
+            <!-- RESUMEN EJECUTIVO -->
+            <div class="glass-card p-6 border-osiptel-orange/50 shadow-2xl">
+                <h2 class="text-sm font-black text-white uppercase tracking-widest mb-4 flex items-center">
+                    <span class="bg-osiptel-orange text-white px-2 py-1 rounded mr-2">RESUMEN EJECUTIVO</span> 
                     Balance global de expedientes analizados
                 </h2>
-                <div class="grid grid-cols-4 gap-10 text-center">
-                    <div class="bg-white/5 p-10 rounded-2xl border border-white/10">
-                        <p class="text-xl text-osiptel-gray uppercase font-bold tracking-widest">Iniciaron el proceso</p>
-                        <p id="txt-total" class="text-8xl font-black text-white my-6">0</p>
-                        <p class="text-xl font-bold text-white/60">Total de Expedientes</p>
+                <div class="grid grid-cols-4 gap-6 text-center">
+                    <div class="bg-white/5 p-5 rounded-lg border border-white/10">
+                        <p class="text-[12px] text-osiptel-gray uppercase font-bold tracking-widest">Iniciaron el proceso</p>
+                        <p id="txt-total" class="text-5xl font-black text-white my-3">0</p>
+                        <p class="text-sm font-bold text-white/60">Total de Expedientes</p>
                     </div>
-                    <div class="bg-osiptel-orange/10 p-10 rounded-2xl border border-osiptel-orange/40">
-                        <p class="text-xl text-osiptel-orange uppercase font-bold tracking-widest">Terminaron en Sanción</p>
-                        <p id="txt-multas" class="text-8xl font-black text-osiptel-orange my-6">0</p>
-                        <p id="txt-multas-pct" class="text-lg font-bold text-osiptel-orange/80 uppercase">Representa el 0% del total de expedientes</p>
+                    <div class="bg-osiptel-orange/10 p-5 rounded-lg border border-osiptel-orange/40">
+                        <p class="text-[12px] text-osiptel-orange uppercase font-bold tracking-widest">Terminaron en Sanción</p>
+                        <p id="txt-multas" class="text-5xl font-black text-osiptel-orange my-3">0</p>
+                        <p id="txt-multas-pct" class="text-xs font-bold text-osiptel-orange/80 uppercase">Representa el 0% del total de expedientes</p>
                     </div>
-                    <div class="bg-osiptel-cyan/10 p-10 rounded-2xl border border-osiptel-cyan/40">
-                        <p class="text-xl text-osiptel-cyan uppercase font-bold tracking-widest">Alerta Preventiva</p>
-                        <p id="txt-alertas" class="text-8xl font-black text-osiptel-cyan my-6">0</p>
-                        <p id="txt-alertas-pct" class="text-lg font-bold text-osiptel-cyan/80 uppercase">Representa el 0% del total de expedientes</p>
+                    <div class="bg-osiptel-cyan/10 p-5 rounded-lg border border-osiptel-cyan/40">
+                        <p class="text-[12px] text-osiptel-cyan uppercase font-bold tracking-widest">Alerta Preventiva</p>
+                        <p id="txt-alertas" class="text-5xl font-black text-osiptel-cyan my-3">0</p>
+                        <p id="txt-alertas-pct" class="text-xs font-bold text-osiptel-cyan/80 uppercase">Representa el 0% del total de expedientes</p>
                     </div>
-                    <div class="bg-osiptel-blue/20 p-10 rounded-2xl border-4 border-osiptel-blue drop-shadow-2xl transform scale-[1.02]">
-                        <p class="text-2xl text-white uppercase font-black tracking-widest">Fueron Archivados</p>
-                        <p id="txt-archivos" class="text-9xl font-black text-osiptel-blue my-4 drop-shadow-[0_0_20px_rgba(0,87,184,0.8)]">0</p>
-                        <p id="txt-archivos-pct" class="text-xl font-black text-white/90 uppercase">Representa el 0% del total de expedientes</p>
+                    <div class="bg-osiptel-blue/20 p-5 rounded-lg border-2 border-osiptel-blue drop-shadow-lg transform scale-[1.02]">
+                        <p class="text-[13px] text-white uppercase font-black tracking-widest">Fueron Archivados</p>
+                        <p id="txt-archivos" class="text-6xl font-black text-osiptel-blue my-2 drop-shadow-[0_0_10px_rgba(0,87,184,0.8)]">0</p>
+                        <p id="txt-archivos-pct" class="text-xs font-black text-white/90 uppercase">Representa el 0% del total de expedientes</p>
                     </div>
                 </div>
             </div>
 
-            <!-- GRAFICO APILADO GRANDE 4K (Height increased significantly) -->
-            <div class="glass-card p-12 flex flex-col h-[900px]">
-                <h3 class="text-3xl font-black text-white uppercase text-center mb-6">Estado Final de los Expedientes por Empresa Operadora</h3>
-                <div class="info-box mx-auto w-4/5">
+            <!-- GRAFICO APILADO GRANDE -->
+            <div class="glass-card p-8 flex flex-col h-[550px]">
+                <h3 class="text-lg font-black text-white uppercase text-center mb-2">Estado Final de los Expedientes por Empresa Operadora</h3>
+                <div class="info-box mx-auto w-3/4">
                     <strong>💡 ¿Qué significa este gráfico?</strong> Permite identificar de forma visual si a una empresa se le castiga más (barras naranjas de Multas) o si la mayoría de sus expedientes terminan perdonándose (barras azules de Archivos) o en simples llamadas de atención (barras celestes de Alerta). 
                 </div>
-                <div class="chart-container flex-1 p-8 relative mt-4">
+                <div class="chart-container flex-1 p-4 relative mt-2">
                     <canvas id="chartTasaApilada"></canvas>
                 </div>
             </div>
 
-            <!-- GRAFICOS DE RANKING Y TIEMPOS VS CON NOTAS (4K H-[900px]) -->
-            <div class="grid grid-cols-2 gap-16">
-                <div class="glass-card p-12 flex flex-col h-[900px]">
-                    <h3 class="text-3xl font-black text-osiptel-orange uppercase text-center mb-6">Ranking: Mayor Cantidad de Sanciones</h3>
+            <!-- GRAFICOS DE RANKING Y TIEMPOS VS -->
+            <div class="grid grid-cols-2 gap-10">
+                <div class="glass-card p-8 flex flex-col h-[550px]">
+                    <h3 class="text-lg font-black text-osiptel-orange uppercase text-center mb-2">Ranking: Empresas con Mayor Cantidad de Sanciones</h3>
                     <div class="info-box">
                         <strong>💡 Lectura Rápida:</strong> Se excluyen archivos y alertas. Este ranking puro muestra qué operador ha cometido más infracciones castigadas oficialmente.
                     </div>
-                    <div class="chart-container flex-1 p-8 relative mt-4">
+                    <div class="chart-container flex-1 p-4 relative mt-2">
                         <canvas id="chartRanking"></canvas>
                     </div>
                 </div>
 
-                <div class="glass-card p-12 flex flex-col h-[900px] relative">
-                    <h3 class="text-3xl font-black text-white uppercase text-center mb-6">Tiempos: Convencional vs Preventiva</h3>
+                <div class="glass-card p-8 flex flex-col h-[550px] relative">
+                    <h3 class="text-lg font-black text-white uppercase text-center mb-2">Comparativa de Tiempos: Convencional vs Preventiva</h3>
                     <div class="info-box border-l-red-500 bg-red-500/10">
-                        <strong>💡 Insight Estratégico (Metas vs Eficiencia):</strong> Demuestra la gran lentitud del proceso "Convencional". Esto permite inferir que OSIPTEL utiliza procesos "Preventivos" simplemente por su rapidez para poder alcanzar más rápido las metas del Plan Operativo (POI).
+                        <strong>💡 Insight Estratégico (Metas vs Eficiencia):</strong> Demuestra la gran lentitud del proceso "Convencional". Esto permite inferir que OSIPTEL utiliza procesos "Preventivos" simplemente por su rapidez para poder alcanzar metas.
                     </div>
-                    <div class="chart-container flex-1 p-8 relative mt-4">
+                    <div class="chart-container flex-1 p-4 relative mt-2">
                         <canvas id="chartDuracionVs"></canvas>
                     </div>
                 </div>
             </div>
 
-            <!-- GRAFICO HISTORICO GIGANTE 4K -->
-            <div class="glass-card p-12 flex flex-col h-[1000px]">
-                <h3 class="text-4xl font-black text-white uppercase text-center mb-6">Evolución Histórica de Resoluciones</h3>
-                <div class="info-box mx-auto w-4/5">
+            <!-- GRAFICO HISTORICO GIGANTE -->
+            <div class="glass-card p-8 flex flex-col h-[600px]">
+                <h3 class="text-lg font-black text-white uppercase text-center mb-2">Evolución Histórica de Resoluciones</h3>
+                <div class="info-box mx-auto w-3/4">
                     <strong>💡 ¿Qué revela esta evolución?</strong> Compara año a año si la institución se está volviendo más estricta (crece la barra naranja de Sanciones) o más permisiva (crecen las barras azules/celestes de Archivos y Alertas).
                 </div>
-                <div class="chart-container flex-1 p-10 relative mt-4">
+                <div class="chart-container flex-1 p-6 relative mt-2">
                     <canvas id="chartAgrupado"></canvas>
                 </div>
             </div>
 
-            <!-- TIEMPOS POR EMPRESA Y PIE CHART 4K -->
-            <div class="grid grid-cols-2 gap-16">
-                <div class="glass-card p-12 flex flex-col h-[900px]">
-                    <h3 class="text-3xl font-black text-white uppercase text-center mb-6">Resolución por Empresa (Meses)</h3>
+            <!-- TIEMPOS POR EMPRESA Y PIE CHART -->
+            <div class="grid grid-cols-2 gap-10">
+                <div class="glass-card p-8 flex flex-col h-[550px]">
+                    <h3 class="text-lg font-black text-white uppercase text-center mb-2">Duración Promedio de Resolución por Empresa</h3>
                     <div class="info-box">
-                        <strong>💡 Detección de Cuellos de Botella:</strong> Indica cuántos meses le toma en promedio a OSIPTEL cerrar un caso. Revela si la entidad se demora injustificadamente más tiempo evaluando a unos operadores que a otros.
+                        <strong>💡 Detección de Cuellos de Botella:</strong> Indica cuántos meses le toma en promedio a OSIPTEL cerrar un caso para cada empresa.
                     </div>
-                    <div class="chart-container flex-1 p-8 relative mt-4">
+                    <div class="chart-container flex-1 p-4 relative mt-2">
                         <canvas id="chartDuracionEmpresa"></canvas>
                     </div>
                 </div>
 
-                <div class="glass-card p-12 flex flex-col h-[900px]">
-                    <h3 class="text-3xl font-black text-osiptel-cyan uppercase text-center mb-6">Composición de Resoluciones</h3>
+                <div class="glass-card p-8 flex flex-col h-[550px]">
+                    <h3 class="text-lg font-black text-osiptel-cyan uppercase text-center mb-2">Composición General de Resoluciones</h3>
                     <div class="info-box">
-                        <strong>💡 El Balance Institucional:</strong> Muestra la "torta" final. Ayuda a deducir si todo el esfuerzo operativo en fiscalización se traduce en castigos reales (Multas) o si la mayoría culmina sin sanción.
+                        <strong>💡 El Balance Institucional:</strong> Muestra la "torta" final. Ayuda a deducir visualmente si el esfuerzo termina realmente en castigos.
                     </div>
-                    <div class="chart-container flex-1 p-8 relative flex items-center justify-center mt-4">
+                    <div class="chart-container flex-1 p-4 relative flex items-center justify-center mt-2">
                         <canvas id="chartPie"></canvas>
                     </div>
                 </div>
             </div>
 
-            <!-- TIEMPOS HISTORICOS (LINE) GIGANTE 4K -->
-            <div class="glass-card p-12 flex flex-col h-[1000px]">
-                <h3 class="text-4xl font-black text-white uppercase text-center mb-6">Eficiencia Histórica: Duración (En Meses)</h3>
-                <div class="info-box mx-auto w-4/5">
-                    <strong>💡 Medición de Agilidad:</strong> Muestra el tiempo histórico. Si la línea sube con los años, indica que los procesos administrativos de OSIPTEL se están volviendo más burocráticos y lentos.
+            <!-- TIEMPOS HISTORICOS (LINE) GIGANTE -->
+            <div class="glass-card p-8 flex flex-col h-[600px]">
+                <h3 class="text-lg font-black text-white uppercase text-center mb-2">Eficiencia Histórica: Duración Promedio (En Meses)</h3>
+                <div class="info-box mx-auto w-3/4">
+                    <strong>💡 Medición de Agilidad:</strong> Muestra el tiempo histórico. Si la línea sube con los años, indica que los procesos administrativos se vuelven lentos.
                 </div>
-                <div class="chart-container flex-1 p-10 relative mt-4">
+                <div class="chart-container flex-1 p-6 relative mt-2">
                     <canvas id="chartTiempos"></canvas>
                 </div>
             </div>
 
-            <!-- VOLUMEN DE EXPEDIENTES GIGANTE 4K -->
-            <div class="glass-card p-12 flex flex-col h-[900px]">
-                <h3 class="text-4xl font-black text-white uppercase text-center mb-6">Total de Expedientes Iniciados por Año</h3>
-                <div class="info-box mx-auto w-4/5">
-                    <strong>💡 Capacidad Operativa:</strong> Refleja únicamente la cantidad de expedientes iniciados para medir la carga laboral y presencia anual de OSIPTEL, sin importar si terminaron en multa o no.
+            <!-- VOLUMEN DE EXPEDIENTES (GIGANTE) -->
+            <div class="glass-card p-8 flex flex-col h-[500px]">
+                <h3 class="text-lg font-black text-white uppercase text-center mb-2">Total de Expedientes Iniciados por Año</h3>
+                <div class="info-box mx-auto w-3/4">
+                    <strong>💡 Capacidad Operativa:</strong> Refleja únicamente la cantidad de expedientes iniciados para medir la carga laboral anual.
                 </div>
-                <div class="chart-container flex-1 p-10 relative mt-4">
+                <div class="chart-container flex-1 p-6 relative mt-2">
                     <canvas id="chartVolumen"></canvas>
                 </div>
             </div>
 
-            <!-- TABLA 4K -->
-            <div class="glass-card p-12 mb-20">
-                <h3 class="text-3xl font-black text-white uppercase mb-10 border-b border-white/20 pb-4">Tabla de Control de Expedientes</h3>
+            <!-- TABLA -->
+            <div class="glass-card p-8 mb-12">
+                <h3 class="text-lg font-black text-white uppercase mb-6 border-b border-white/20 pb-2">Tabla de Control de Expedientes</h3>
                 <div class="overflow-x-auto">
-                    <table class="w-full text-left text-xl whitespace-nowrap bg-[#040b14] border border-white/10 rounded-xl">
+                    <table class="w-full text-left text-sm whitespace-nowrap bg-[#040b14] border border-white/10 rounded">
                         <thead class="bg-[#002D72] text-white">
                             <tr>
-                                <th class="px-8 py-6 font-black text-lg uppercase tracking-widest">N° Expediente</th>
-                                <th class="px-8 py-6 font-black text-lg uppercase tracking-widest text-center">Año</th>
-                                <th class="px-8 py-6 font-black text-lg uppercase tracking-widest">Empresa Operadora</th>
-                                <th class="px-8 py-6 font-black text-lg uppercase tracking-widest">Metodología</th>
-                                <th class="px-8 py-6 font-black text-lg uppercase tracking-widest">Resolución Final</th>
-                                <th class="px-8 py-6 font-black text-lg uppercase tracking-widest text-right">Duración Total (Meses)</th>
+                                <th class="px-5 py-4 font-bold text-xs uppercase">N° Expediente</th>
+                                <th class="px-5 py-4 font-bold text-xs uppercase text-center">Año</th>
+                                <th class="px-5 py-4 font-bold text-xs uppercase">Empresa Operadora</th>
+                                <th class="px-5 py-4 font-bold text-xs uppercase">Metodología</th>
+                                <th class="px-5 py-4 font-bold text-xs uppercase">Resolución Final</th>
+                                <th class="px-5 py-4 font-bold text-xs uppercase text-right">Duración Total (Meses)</th>
                             </tr>
                         </thead>
-                        <tbody id="table-body" class="divide-y divide-white/10 text-white/90 font-medium">
+                        <tbody id="table-body" class="divide-y divide-white/10 text-white/90 font-medium text-sm">
                         </tbody>
                     </table>
                 </div>
@@ -2469,9 +2467,14 @@
         const C_TOTAL = '#A0AEC0';
 
         const COMPANY_COLORS = {
-            'Claro': '#EF3829', 'Entel': '#005CE6', 'Telefónica': '#5BC500', 
-            'Bitel': '#FFD100', 'Win': '#FF4B00', 'Wow': '#8A2BE2', 
-            'Integratel': '#4A5568', 'Otro': '#718096'
+            'Claro': '#EF3829', 
+            'Entel': '#005CE6', 
+            'Telefónica': '#5BC500', 
+            'Bitel': '#FFD100', 
+            'Win': '#FF4B00', 
+            'Wow': '#8A2BE2', 
+            'Integratel': '#4A5568',
+            'Otro': '#718096'
         };
 
         let cTasaApilada, cVolumen, cAgrupado, cRanking, cDuracionVs, cTiempos, cPie, cDuracionEmpresa;
@@ -2499,31 +2502,30 @@
             return type;
         }
 
-        // FONTS ESCALADOS PARA 4K
         function getCommonOptions(titleX, titleY) {
             return {
                 responsive: true, maintainAspectRatio: false,
                 plugins: {
                     legend: { display: false },
                     datalabels: {
-                        color: 'white', font: { weight: '900', size: 28 }, // 4K size
+                        color: 'white', font: { weight: '900', size: 16 },
                         align: 'end', anchor: 'end',
-                        textShadowColor: '#000', textShadowBlur: 8,
+                        textShadowColor: '#000', textShadowBlur: 4,
                         formatter: v => v > 0 ? v : ''
                     },
-                    tooltip: { padding: 24, titleFont: {size:24}, bodyFont: {size:22}, backgroundColor: 'rgba(0,0,0,0.9)' }
+                    tooltip: { padding: 15, titleFont: {size:16}, bodyFont: {size:15}, backgroundColor: 'rgba(0,0,0,0.9)' }
                 },
                 scales: {
                     x: { 
-                        title: { display: !!titleX, text: titleX, color: '#8A9BB0', font: { size: 20, weight: 'bold' }, padding: {top:20} },
-                        grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { font: {size:22} } 
+                        title: { display: !!titleX, text: titleX, color: '#8A9BB0', font: { size: 13, weight: 'bold' }, padding: {top:10} },
+                        grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { font: {size:14} } 
                     },
                     y: { 
-                        title: { display: !!titleY, text: titleY, color: '#8A9BB0', font: { size: 20, weight: 'bold' }, padding: {bottom:20} },
-                        grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { font: {size:22} }, beginAtZero: true, suggestedMax: 5 
+                        title: { display: !!titleY, text: titleY, color: '#8A9BB0', font: { size: 13, weight: 'bold' }, padding: {bottom:10} },
+                        grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { font: {size:14} }, beginAtZero: true, suggestedMax: 5 
                     }
                 },
-                layout: { padding: { top: 60, right: 60 } } 
+                layout: { padding: { top: 40, right: 30 } } 
             };
         }
 
@@ -2531,9 +2533,9 @@
             let optsApilada = getCommonOptions('Cantidad de Expedientes (Unidades)', 'Empresas Operadoras');
             optsApilada.indexAxis = 'y';
             optsApilada.scales.x.stacked = true; optsApilada.scales.y.stacked = true;
-            optsApilada.plugins.legend = { display: true, position: 'top', labels: { color: 'white', font: {size: 24, weight:'bold'}, boxWidth: 24, padding: 40 } };
+            optsApilada.plugins.legend = { display: true, position: 'top', labels: { color: 'white', font: {size: 15, weight:'bold'}, boxWidth: 15, padding: 25 } };
             optsApilada.plugins.datalabels.anchor = 'center'; optsApilada.plugins.datalabels.align = 'center';
-            optsApilada.layout = { padding: { right: 80, top: 20 } };
+            optsApilada.layout = { padding: { right: 50, top: 10 } };
             cTasaApilada = new Chart(document.getElementById('chartTasaApilada').getContext('2d'), {
                 type: 'bar', data: { labels: [], datasets: [] }, options: optsApilada
             });
@@ -2543,13 +2545,15 @@
             });
 
             let optsGrp = getCommonOptions('Año de Inicio del Expediente', 'Cantidad de Resoluciones Confirmadas');
-            optsGrp.plugins.legend = { display: true, position: 'top', labels: { color:'white', font:{size:24}, boxWidth:24, padding: 40 } };
+            optsGrp.plugins.legend = { display: true, position: 'top', labels: { color:'white', font:{size:15}, boxWidth:15, padding: 20 } };
             cAgrupado = new Chart(document.getElementById('chartAgrupado').getContext('2d'), {
                 type: 'bar', data: { labels: [], datasets: [] }, options: optsGrp
             });
 
             let optsRank = getCommonOptions('Número de Sanciones (Multas)', 'Empresas Operadoras');
-            optsRank.indexAxis = 'y'; optsRank.scales.x.suggestedMax = 5; optsRank.layout = { padding: { right: 80 } };
+            optsRank.indexAxis = 'y';
+            optsRank.scales.x.suggestedMax = 5;
+            optsRank.layout = { padding: { right: 50 } };
             cRanking = new Chart(document.getElementById('chartRanking').getContext('2d'), {
                 type: 'bar', data: { labels: [], datasets: [] }, options: optsRank
             });
@@ -2569,7 +2573,9 @@
             });
 
             let optsDurEmp = getCommonOptions('Duración Promedio (En Meses)', 'Empresas Operadoras');
-            optsDurEmp.indexAxis = 'y'; optsDurEmp.plugins.datalabels.formatter = v => v + ' meses'; optsDurEmp.layout = { padding: { right: 80 } };
+            optsDurEmp.indexAxis = 'y';
+            optsDurEmp.plugins.datalabels.formatter = v => v + ' meses';
+            optsDurEmp.layout = { padding: { right: 50 } };
             cDuracionEmpresa = new Chart(document.getElementById('chartDuracionEmpresa').getContext('2d'), {
                 type: 'bar', data: { labels: [], datasets: [] }, options: optsDurEmp
             });
@@ -2579,14 +2585,14 @@
                 options: {
                     responsive: true, maintainAspectRatio: false,
                     plugins: {
-                        legend: { position: 'right', labels: { color:'white', font: {size:26}, padding: 50 } },
+                        legend: { position: 'right', labels: { color:'white', font: {size:16}, padding: 30 } },
                         datalabels: {
-                            color: 'white', font: { weight: 'black', size: 36 },
+                            color: 'white', font: { weight: 'black', size: 22 },
                             formatter: (v, ctx) => {
                                 let sum = 0; ctx.chart.data.datasets[0].data.forEach(d=>sum+=d);
                                 return (v*100/sum).toFixed(1) + "%";
                             },
-                            textShadowColor: '#000', textShadowBlur: 12
+                            textShadowColor: '#000', textShadowBlur: 8
                         }
                     }
                 }
@@ -2661,15 +2667,15 @@
             };
             cTasaApilada.update();
 
-            cVolumen.data = { labels: years, datasets: [{ label: 'Total Expedientes', data: years.map(y => mapAnio[y].total), backgroundColor: C_TOTAL, borderRadius: 12, barPercentage: 0.5 }] };
+            cVolumen.data = { labels: years, datasets: [{ label: 'Total Expedientes', data: years.map(y => mapAnio[y].total), backgroundColor: C_TOTAL, borderRadius: 6, barPercentage: 0.5 }] };
             cVolumen.update();
 
             cAgrupado.data = {
                 labels: years,
                 datasets: [
-                    { label: 'Sanción (Multa)', data: years.map(y => mapAnio[y].multas), backgroundColor: C_MULTA, borderRadius: 8 },
-                    { label: 'Alerta Preventiva', data: years.map(y => mapAnio[y].alertas), backgroundColor: C_ALERTA, borderRadius: 8 },
-                    { label: 'Archivo', data: years.map(y => mapAnio[y].archivos), backgroundColor: C_ARCHIVO, borderRadius: 8 }
+                    { label: 'Sanción (Multa)', data: years.map(y => mapAnio[y].multas), backgroundColor: C_MULTA, borderRadius: 4 },
+                    { label: 'Alerta Preventiva', data: years.map(y => mapAnio[y].alertas), backgroundColor: C_ALERTA, borderRadius: 4 },
+                    { label: 'Archivo', data: years.map(y => mapAnio[y].archivos), backgroundColor: C_ARCHIVO, borderRadius: 4 }
                 ]
             };
             cAgrupado.update();
@@ -2681,7 +2687,7 @@
                     label: 'Cantidad de Sanciones',
                     data: compsRanking.length ? compsRanking.map(c => mapEmp[c].Sancionador) : [0],
                     backgroundColor: compsRanking.map(c => COMPANY_COLORS[c] || C_MULTA),
-                    borderRadius: 12
+                    borderRadius: 6
                 }]
             };
             cRanking.update();
@@ -2692,8 +2698,8 @@
                 labels: ['Convencional', 'Preventiva'],
                 datasets: [{
                     data: [dConv, dPrev],
-                    backgroundColor: ['#E53E3E', '#38A169'], // Rojo vs Verde
-                    borderRadius: 16, barPercentage: 0.5
+                    backgroundColor: ['#E53E3E', '#38A169'],
+                    borderRadius: 8, barPercentage: 0.5
                 }]
             };
             cDuracionVs.update();
@@ -2703,7 +2709,7 @@
                 datasets: [{
                     label: 'Duración Promedio (Meses)',
                     data: years.map(y => mapAnio[y].countDur > 0 ? (mapAnio[y].sumDur / mapAnio[y].countDur).toFixed(1) : 0),
-                    borderColor: '#fff', borderWidth: 8, pointBackgroundColor: '#00AEEF', pointRadius: 12
+                    borderColor: '#fff', borderWidth: 5, pointBackgroundColor: '#00AEEF', pointRadius: 8
                 }]
             };
             cTiempos.update();
@@ -2715,7 +2721,7 @@
                     label: 'Meses Promedio de Resolución',
                     data: compsDur.length ? compsDur.map(c => (mapEmp[c].sumDur / mapEmp[c].countDur).toFixed(1)) : [0],
                     backgroundColor: compsDur.map(c => COMPANY_COLORS[c] || C_ALERTA),
-                    borderRadius: 12
+                    borderRadius: 6
                 }]
             };
             cDuracionEmpresa.update();
@@ -2724,7 +2730,7 @@
                 labels: ['Sanciones', 'Alertas Preventivas', 'Archivos', 'En trámite'],
                 datasets: [{
                     data: [multas, alertas, archivos, filtered.filter(d=>d.resultado_fisca!=='Sancionador'&&d.resultado_fisca!=='Alerta Preventiva'&&d.resultado_fisca!=='Archivo').length],
-                    backgroundColor: [C_MULTA, C_ALERTA, C_ARCHIVO, '#4A5568'], borderWidth: 6, borderColor: '#040b14'
+                    backgroundColor: [C_MULTA, C_ALERTA, C_ARCHIVO, '#4A5568'], borderWidth: 3, borderColor: '#040b14'
                 }]
             };
             cPie.update();
@@ -2734,7 +2740,7 @@
             [...filtered].sort((a,b) => (b.anio_inicio||0) - (a.anio_inicio||0)).slice(0, 100).forEach(d => {
                 
                 let bColor = 'text-white/50';
-                if(d.resultado_fisca === 'Sancionador') bColor = 'text-osiptel-orange font-black drop-shadow-[0_0_8px_rgba(247,148,29,0.5)]';
+                if(d.resultado_fisca === 'Sancionador') bColor = 'text-osiptel-orange font-black drop-shadow-[0_0_4px_rgba(247,148,29,0.5)]';
                 if(d.resultado_fisca === 'Alerta Preventiva') bColor = 'text-osiptel-cyan font-black';
                 if(d.resultado_fisca === 'Archivo') bColor = 'text-osiptel-blue font-black';
 
@@ -2745,12 +2751,12 @@
                 const tr = document.createElement('tr');
                 tr.className = 'hover:bg-white/5 transition-colors cursor-pointer';
                 tr.innerHTML = `
-                    <td class="px-8 py-6 font-mono text-xl text-white/70">${d.id}</td>
-                    <td class="px-8 py-6 text-center font-bold text-2xl">${d.anio_inicio||'-'}</td>
-                    <td class="px-8 py-6 font-black text-2xl" style="color: ${compColor}">${compShort}</td>
-                    <td class="px-8 py-6 text-xl">${typeShort === 'Preventiva' ? '⚡ Preventiva' : '⏱ Convencional'}</td>
-                    <td class="px-8 py-6 ${bColor} uppercase text-lg tracking-wider">${d.resultado_fisca || 'EN TRÁMITE'}</td>
-                    <td class="px-8 py-6 text-right font-mono font-bold text-2xl ${d.duracion>24?'text-red-400':(d.duracion<6?'text-green-400':'text-white')}">${d.duracion ? d.duracion.toFixed(1) : '-'}</td>
+                    <td class="px-5 py-4 font-mono text-[13px] text-white/70">${d.id}</td>
+                    <td class="px-5 py-4 text-center font-bold text-[14px]">${d.anio_inicio||'-'}</td>
+                    <td class="px-5 py-4 font-black text-[14px]" style="color: ${compColor}">${compShort}</td>
+                    <td class="px-5 py-4 text-[13px]">${typeShort === 'Preventiva' ? '⚡ Preventiva' : '⏱ Convencional'}</td>
+                    <td class="px-5 py-4 ${bColor} uppercase text-[12px] tracking-wider">${d.resultado_fisca || 'EN TRÁMITE'}</td>
+                    <td class="px-5 py-4 text-right font-mono font-bold text-[15px] ${d.duracion>24?'text-red-400':(d.duracion<6?'text-green-400':'text-white')}">${d.duracion ? d.duracion.toFixed(1) : '-'}</td>
                 `;
                 tbody.appendChild(tr);
             });
